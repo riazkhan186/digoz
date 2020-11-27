@@ -1,0 +1,35 @@
+
+/* mean menu start */
+
+@media screen and (max-width:992px){
+    .main-menu ul li a{
+       
+        padding: 0px 20px 0px 20px;
+    }
+    .mean-bar {
+        margin-top: 15px;
+    }
+    .mean-container a.meanmenu-reveal{
+        margin-right: 15%;
+    }
+}
+@media screen and (max-width:800px){
+    .mean-container a.meanmenu-reveal{
+        margin-right: 10%;
+    }
+}
+@media screen and (max-width:768px){
+    .mean-container a.meanmenu-reveal{
+        margin-right: 15%;
+    }
+}
+@media screen and (max-width:576px){
+    .mean-container a.meanmenu-reveal{
+        margin-right: 3%;
+    }
+    .brand a>img{
+        max-width: 50%;
+    }
+}
+
+/* mean menu end */
