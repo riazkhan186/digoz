@@ -1,90 +1,65 @@
 (function ($) {
-
-    $(document).ready(function () {
-        // for sticky navbar
-        $(window).scroll(function () {
-            if ($(window).scrollTop() > 0) {
-                $(".header-menu").addClass("sticky");
-            } else {
-                $(".header-menu").removeClass("sticky");
-            }
-        });
+    "use strict";
+    // for sticky navbar
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 0) {
+            $(".navbar-area").addClass("sticky");
+        } else {
+            $(".navbar-area").removeClass("sticky");
+        }
     });
-    $(document).ready(function () {
-        // for gototop
-        $(window).scroll(function () {
-            if ($(window).scrollTop() > 0) {
-                $(".gototop").addClass("gotobtn");
-            } else {
-                $(".gototop").removeClass("gotobtn");
-            }
-        });
-    });
-    // mean menu
-    $(document).ready(function () {
-        $('.main-menu').meanmenu({
-            meanMenuContainer: '.header-menu',
-            meanScreenWidth: 992,
-        });
+    // Mean Menu 
+    $('.mean-menu').meanmenu({
+        meanScreenWidth: "991"
     });
     // banner slider
-    $(document).ready(function () {
-        $('.slider-area').owlCarousel({
-            loop: false,
-            items: 1,
-            autoplay: false,
-            autoplayTimeout: 4000,
-            autoplayHoverPause: true,
-        });
+    $('.slider-area').owlCarousel({
+        loop: true,
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
     });
     // counter up
-    jQuery(document).ready(function ($) {
-        $('.counter').counterUp({
-            delay: 30,
-            time: 1000.
-        });
+    $('.counter').counterUp({
+        delay: 30,
+        time: 1000.
     });
     // testimonial
-    $(document).ready(function () {
-        $('.testimonial-slide').owlCarousel({
-            loop: true,
-            items: 1,
-            autoplay: false,
-            autoplayTimeout: 4000,
-            autoplayHoverPause: true,
-            nav: true,
-            navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>']
-        });
+    $('.testimonial-slide').owlCarousel({
+        loop: true,
+        items: 1,
+        autoplay: false,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        nav: true,
+        navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>']
     });
+    // client slider
+    $('.client-slider').owlCarousel({
+        loop: true,
 
-    // banner slider
-    $(document).ready(function () {
-        $('.client-slider').owlCarousel({
-            loop: true,
-
-            autoplay: false,
-            autoplayTimeout: 4000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                768: {
-                    items: 1
-                },
-                850: {
-                    items: 1
-                },
-                900: {
-                    items: 2
-                }
+        autoplay: false,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            768: {
+                items: 1
+            },
+            850: {
+                items: 1
+            },
+            900: {
+                items: 2
             }
-        });
-    });
-    $(document).ready(function () {
-        $('.venobox').venobox();
+        }
     });
 
+    // venobox Video player plugin
+    $('.venobox').venobox();
 
     // countdown
     $('#getting-started-d').countdown('2021/01/01', function (event) {
@@ -103,5 +78,25 @@
         $(this).html(event.strftime('<div><span>%S</span> <span>seconds </span> </div> '));
     });
 
+    // Go to Top
+    $(function () {
+        // Scroll Event
+        $(window).on('scroll', function () {
+            var scrolled = $(window).scrollTop();
+            if (scrolled > 600) $('.go-top').addClass('active');
+            if (scrolled < 600) $('.go-top').removeClass('active');
+        });
+        // Click Event
+        $('.go-top').on('click', function () {
+            $("html, body").animate({ scrollTop: "0" }, 500);
+        });
+    });
 
+    // WOW Animation JS
+    if ($('.wow').length) {
+        var wow = new WOW({
+            mobile: false
+        });
+        wow.init();
+    }
 })(jQuery)
